@@ -43,7 +43,7 @@ average_bmi = round(sum_of_bmis / len(bmi), 1)
 #calculate average count of children
 sum_of_children = 0
 for record in children:
-    sum_of_children += int(0)
+    sum_of_children += int(record)
 average_children = round(sum_of_children / len(children), 1)
 
 #calculate count smokers and nonsmokers.
@@ -93,7 +93,46 @@ print("Number of residents of region northwest: " + str(northwest_count))
 #zip every list into 1 list
 medical_insurance_list = list(zip(age,sex,bmi,children,smoker,region,charges))
 
+#calculate average bmi per region
+list_regionSE = []
+list_regionSW = []
+list_regionNE = []
+list_regionNW = []
+for record in medical_insurance_list:
+    for item in record:
+        if item == "southeast":
+            list_regionSE.append(record)
+        elif item == "southwest":
+            list_regionSW.append(record)
+        elif item == "northwest":
+            list_regionNE.append(record)
+        elif item == "northeast":
+            list_regionNW.append(record)
 
+#sum_of_bmiSE = list_regionSE
+
+    #if record[5] == 'southeast':
+     #   sum_of_bmi_regionSE += float(record[2])
+    #elif record[5] == 'southwest':
+     #   sum_of_bmi_regionSW += float(record[2])
+    #elif record[5] == 'northeast':
+     #   sum_of_bmi_regionNE += float(record[2])
+    #elif record[5] == 'northwest':
+     #   sum_of_bmi_regionNW += float(record[2])
+
+#average_bmiSE = sum_of_bmi_regionSE / southeast_count
+#average_bmiSW = sum_of_bmi_regionSW / southwest_count
+#average_bmiNE = sum_of_bmi_regionNE / northeast_count
+#average_bmiNW = sum_of_bmi_regionNW / northwest_count
+
+#print("Average bmi for southeast: " + str(average_bmiSE) + ", Count = " + str(southeast_count))
+#print("Average bmi for southwest: " + str(average_bmiSW) + ", Count = " + str(southwest_count))   
+#print("Average bmi for northeast: " + str(average_bmiNE) + ", Count = " + str(northeast_count))
+#print("Average bmi for northwest: " + str(average_bmiNW) + ", Count = " + str(northwest_count)) 
+
+
+
+            
 
 
 
