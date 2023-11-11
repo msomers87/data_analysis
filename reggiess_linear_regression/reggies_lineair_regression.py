@@ -1,12 +1,18 @@
+#Lineair regression model for bouncy balls.
+#In this code there will be searched for a model (y = ax + b) 
+#to predict the height of a bouncy ball based on the width of the ball.
+#Other variables like force, speed or height at start are not included in this model. 
+
+
 #Input variables:
-#Width is width of bouncy ball. 
-#Datapoints are points (width, height) found in a test with a sample of bouncy balls.
+    #Width is width of bouncy ball. 
+    #Datapoints are points (width, height) found in a test with a sample of bouncy balls.
 width = 6
 datapoints = [(1, 2), (2, 0), (3, 4), (4, 4), (5, 3)]
 
 #Input for lineair regression model:
-#Decimal_places will determine the number of decimal places for slope (a) and intercept (b) in the model. 
-#The ranges will determine the range of possible as en bs in the model.
+    #Decimal_places will determine the number of decimal places for slope (a) and intercept (b) in the model. 
+    #The ranges will determine the range of possible as en bs in the model.
 decimal_places = 3
 minimal_range_a = -1000
 maximal_range_a = 1000
@@ -52,9 +58,10 @@ for a in possible_as:
 #best values for model
 print("The best slope for this model is " + str(best_a) + ".")
 print("The best intercept for this model is " + str(best_b) + ".")
-print("This model has the smallest error with the datapoints from the sample, namely: " + str(round(smallest_error,4)) + ".")
+print("This means the lineair formula in this model is: height = " + str(best_a) + " * width + " + str(best_b) + ".")
+print("This model has the smallest error with the datapoints from the sample: " + str(round(smallest_error,4)) + ".")
 
-#model predicts height of bounce of a bouncy ball by width 
+#model predicts height of bounce of a bouncy ball by certain width 
 height = get_y(best_a,best_b, width)
 print("The model predicts a bouncy ball with a width of " + str(width) + " cm bounces " + str(height) + " m high.")
 
