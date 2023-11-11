@@ -1,0 +1,87 @@
+a = 0
+b = 1
+c = 2
+d = 3
+e = 4
+f = 5
+g = 6
+h = 7
+i = 8
+j = 9
+k = 10
+l = 11
+m = 12
+n = 13
+o = 14
+p = 15
+q = 16
+r = 17
+s = 18
+t = 19
+u = 20
+v = 21
+w = 22
+x = 23
+y = 24
+z = 25
+
+message_1 = "xuo jxuhu! jxyi yi qd unqcfbu ev q squiqh syfxuh. muhu oek qrbu je tusetu yj? y xefu ie! iudt cu q cuiiqwu rqsa myjx jxu iqcu evviuj!"
+
+message_1_list = []
+for code in message_1:
+  if code == a:
+    message_1_list.append(0)
+  elif code == b:
+    message_1_list.append(1)
+  elif code == c:
+    message_1_list.append(2)
+  elif code == d:
+    message_1_list.append(3)
+  elif code == e:
+    message_1_list.append(4)
+  elif code == f:
+    message_1_list.append(5)
+  elif code == g:
+    message_1_list.append(6)
+  elif code == h:
+    message_1_list.append(7)
+  elif code == i:
+    message_1_list.append(8)
+  elif code == j:
+    message_1_list.append(9)
+  elif code == k:
+    message_1_list.append(10)
+  elif code == l:
+    message_1_list.append(11)
+  elif code == m:
+    message_1_list.append(12)
+  elif code == n:
+    message_1_list.append(13)
+  elif code == o:
+    message_1_list.append(14)
+  elif code == p:
+    message_1_list.append(15)
+  elif code == q:
+    message_1_list.append(16)
+  elif code == r:
+    message_1_list.append(17)
+  elif code == s:
+    message_1_list.append(18)
+  elif code == t:
+    message_1_list.append(19)
+  elif code == u:
+    message_1_list.append(20)
+  elif code == v:
+    message_1_list.append(21)
+  elif code == w:
+    message_1_list.append(22)
+  elif code == x:
+    message_1_list.append(23)
+  elif code == y:
+    message_1_list.append(24)
+  elif code == z:
+    message_1_list.append(25)
+  else:
+    message_1_list.append(code)
+
+print(message_1_list)
