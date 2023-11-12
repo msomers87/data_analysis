@@ -52,6 +52,38 @@ if __name__ == "__main__":
     print(f"Average Charges: {average_charges}")
 
 
+# Calculate difference in charges between smokers and non-smokers
+def read_csv(file_path):
+    data = {'smoker': [], 'charges': []}
+
+    with open(file_path) as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            data['smoker'].append(row['smoker'])
+            data['charges'].append(float(row['charges']))
+
+    return data
+
+def calculate_average_charges(data_list, category):
+    # Calculate average charges for a specific category (e.g., smoker or non-smoker)
+    category_charges = [charge for smoker, charge in zip(data_list['smoker'], data_list['charges']) if smoker == category]
+    return round(sum(category_charges) / len(category_charges), 2) if category_charges else 0.0
+
+if __name__ == "__main__":
+    file_path = 'C:/Users/SMR/data_analysis/project_medical_insurance/insurance.csv'
+
+    data = read_csv(file_path)
+
+    average_charges_smoker = calculate_average_charges(data, 'yes')
+    average_charges_nonsmoker = calculate_average_charges(data, 'no')
+
+    # Output the results
+    print(f"Average Charges for Smokers: {average_charges_smoker}")
+    print(f"Average Charges for Non-Smokers: {average_charges_nonsmoker}")
+
+    cost_difference = average_charges_smoker - average_charges_nonsmoker
+    print(f"Cost Difference (Smokers - Non-Smokers): {cost_difference}")
+
 
             
 
