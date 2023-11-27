@@ -8,19 +8,19 @@ def calculate_and_print_stats(dataframe, variable):
 
     # Calculate and print average
     average = round(grades.mean(), 1)
-    print(f"Average {variable}: {average}")
+    print(f"Average {variable}: {average} (all students)")
 
     # Calculate and print median
     median = round(grades.median(), 1)
-    print(f"Median {variable}: {median}")
+    print(f"Median {variable}: {median} (all students)")
 
     # Calculate and print mode
     mode = grades.mode()
     if not mode.empty:
         mode_value = mode.iloc[0]
-        print(f"Mode {variable}: {mode_value}")
+        print(f"Mode {variable}: {mode_value} (all students)")
     else:
-        print(f"No mode found for {variable}")
+        print(f"No mode found for {variable} (all students)")
 
 # Example usage
 calculate_and_print_stats(student_math, 'final_grade')
