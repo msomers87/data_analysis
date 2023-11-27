@@ -2,41 +2,41 @@
 from high_school_main import student_math, student_portuguese
 from scipy.stats import ttest_ind
 
-# Function to calculate and print statistics for a given column
-def calculate_and_print_stats(data, column_name, subject):
+# Function to calculate and print statistics for a given variable
+def calculate_and_print_stats(dataframe, variable):
+    grades = dataframe[variable]
+
     # Calculate and print average
-    average = round(data[column_name].mean(), 1)
-    print(f"Average {subject} {column_name}: {average}")
+    average = round(grades.mean(), 1)
+    print(f"Average {variable}: {average}")
 
     # Calculate and print median
-    median = data[column_name].median()
-    print(f"Median {subject} {column_name}: {median}")
+    median = round(grades.median(), 1)
+    print(f"Median {variable}: {median}")
 
     # Calculate and print mode
-    mode = data[column_name].mode().iloc[0]
-    print(f"Mode {subject} {column_name}: {mode}")
+    mode = grades.mode()
+    if not mode.empty:
+        mode_value = mode.iloc[0]
+        print(f"Mode {variable}: {mode_value}")
+    else:
+        print(f"No mode found for {variable}")
 
-# Columns for math grades
-math_columns = ['grade_1', 'grade_2', 'final_grade']
+# Example usage
+calculate_and_print_stats(student_math, 'final_grade')
 
-# Columns for language grades
-language_columns = ['grade_1', 'grade_2', 'final_grade']
 
-# Calculate and print statistics for math grades
-for column in math_columns:
-    calculate_and_print_stats(student_math, column, "Math")
+# Calculate averages for subgroups
+def calculate_average_for_subgroups(dataframe, column_name, variable):
+    values = dataframe[column_name].unique()
+    for value in values:
+        subset = dataframe[dataframe[column_name] == value]
+        average = round(subset[variable].mean(), 1)
+        print(f"Average {variable} for {column_name} = {value}: {average}")
 
-# Calculate and print statistics for language grades
-for column in language_columns:
-    calculate_and_print_stats(student_portuguese, column, "Portuguese")
+# Example usage
+calculate_average_for_subgroups(student_math, 'sex', 'final_grade')
 
-# Calculate average final grades for 'Apart' and 'Living together' for Math
-average_math_apart = student_math[student_math['parent_status'] == 'Apart']['final_grade'].mean()
-average_math_together = student_math[student_math['parent_status'] == 'Living together']['final_grade'].mean()
-
-# Calculate average final grades for 'Apart' and 'Living together' for Portuguese
-average_portuguese_apart = student_portuguese[student_portuguese['parent_status'] == 'Apart']['final_grade'].mean()
-average_portuguese_together = student_portuguese[student_portuguese['parent_status'] == 'Living together']['final_grade'].mean()
 
 # Calculate t-test for Math
 grades_math_apart = student_math[student_math['parent_status'] == 'Apart']['final_grade']
@@ -49,15 +49,11 @@ grades_portuguese_together = student_portuguese[student_portuguese['parent_statu
 t_stat_portuguese, p_value_portuguese = ttest_ind(grades_portuguese_apart, grades_portuguese_together)
 
 # Print the results
-print(f"Average final grade for 'Apart' (Math): {average_math_apart}")
-print(f"Average final grade for 'Living together' (Math): {average_math_together}")
 print(f"T-test results for Math:")
 print(f"T-statistic: {t_stat_math}")
 print(f"P-value: {p_value_math}")
 print("Statistically significant" if p_value_math < 0.05 else "Not statistically significant")
 
-print(f"Average final grade for 'Apart' (Portuguese): {average_portuguese_apart}")
-print(f"Average final grade for 'Living together' (Portuguese): {average_portuguese_together}")
 print("T-test results for Portuguese:")
 print(f"T-statistic: {t_stat_portuguese}")
 print(f"P-value: {p_value_portuguese}")
