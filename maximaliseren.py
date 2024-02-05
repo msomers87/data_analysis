@@ -6,7 +6,7 @@ max_x = 100
 min_y = 0
 max_y = 75
 
-def optimalisatie(a, b):
+def maximalisatie(a, b):
     max_winst = 0
     beste_x = 0
     beste_y = 0
@@ -25,7 +25,7 @@ def optimalisatie(a, b):
     print("Maximale winst bij x = " + str(beste_x) + " en y = " + str(beste_y) + ". De maximale winst is dan " + str(max_winst) + ".")
 
 #uitvoer functie
-optimalisatie(3, 4)
+maximalisatie(3, 4)
 
 
 
