@@ -24,6 +24,7 @@ def optimalisatie(a, b):
 
     print("Maximale winst bij x = " + str(beste_x) + " en y = " + str(beste_y) + ". De maximale winst is dan " + str(max_winst) + ".")
 
+#uitvoer functie
 optimalisatie(3, 4)
 
 
