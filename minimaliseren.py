@@ -1,6 +1,8 @@
 #invoerwaarden
 min_x = 0
 max_x = 10
+min_y = 0
+max_y = 100
 
 def minimaliseren(a,b):
     min_kosten = 10**100000
@@ -10,7 +12,7 @@ def minimaliseren(a,b):
     for x in range(0,10):
         y = a - b * x
 
-        if y >= 0:
+        if y >= min_y:
             kosten = round(x + (8/20) * y, 2)
 
             if kosten < min_kosten:
