@@ -22,3 +22,4 @@ def minimaliseren(a,b):
 
 #uitvoerfunctie
 minimaliseren(7,2)
+
