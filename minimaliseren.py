@@ -1,27 +1,28 @@
+
+
 #invoerwaarden
 min_x = 0
-max_x = 10
+max_x = 20
 min_y = 0
-max_y = 100
+max_y = 20
 
-def minimaliseren(a,b):
-    min_kosten = 10**100000
+def minimalisatie():
+    min_pillen = 10**100
     beste_x = 0
     beste_y = 0
 
-    for x in range(0,10):
-        y = a - b * x
+    for x in range(min_x, max_x):
+        y = 8 - 2 * x
 
-        if y >= min_y:
-            kosten = round(x + (8/20) * y, 2)
+        if y >= min_y and y <= max_y and 2*x + 3*y >= 18 and x + 3*y >= 12 and 2*x + y >= 8:
+            pillen = x + y
+            
+            if pillen < min_pillen:
+                min_pillen = pillen
+                beste_x = x
+                beste_y = y
 
-            if kosten < min_kosten:
-                min_kosten = kosten
-                beste_x = x 
-                beste_y = y 
-    
-    print("Minimale kosten bij x = " + str(beste_x) + " en y = " + str(beste_y) + ". De minimale kosten zijn dan " + str(min_kosten) + ".")
+    print("Minimaal aantal pillen bij x = " + str(beste_x) + " en y = " + str(beste_y) + ". Het aantal pillen is dan " + str(min_pillen) + ".")
 
-#uitvoerfunctie
-minimaliseren(7,2)
-
+#uitvoer functie
+minimalisatie()
