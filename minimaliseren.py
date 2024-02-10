@@ -12,8 +12,8 @@ def minimalisatie():
     beste_y = 0
 
     for x in range(min_x, max_x):
-        y = 8 - 2 * x
-
+      for y in range(min_y, max_y):
+      
         if y >= min_y and y <= max_y and 2*x + 3*y >= 18 and x + 3*y >= 12 and 2*x + y >= 8:
             pillen = x + y
             
